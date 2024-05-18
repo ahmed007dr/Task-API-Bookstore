@@ -11,9 +11,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model =Category
         fields = ['id','name']
 
+
+        
 class BookSerializer(serializers.ModelSerializer):
-    authors = serializers.PrimaryKeyRelatedField(many=True, queryset=Author.objects.all())
-    categories = serializers.PrimaryKeyRelatedField(many=True, queryset=Category.objects.all())
+    authors = serializers.StringRelatedField(many=True)
+    categories = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Book
