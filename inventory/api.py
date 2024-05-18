@@ -2,6 +2,7 @@ from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Author, Category, Book
 from .serializers import AuthorSerializer, CategorySerializer, BookSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 class BookListCreateView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
