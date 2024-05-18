@@ -1,13 +1,10 @@
 # Task-API-Bookstore
 Task: Building a Bookstore Inventory API with Advanced Features
 Objective:
-Create a comprehensive RESTful API using Python and Django to manage a bookstore's
-inventory. The API will support advanced features such as filtering, ordering, pagination,
-and handling multiple foreign key relationships.
+Create a comprehensive RESTful API using Python and Django to manage a bookstore's inventory. The API will support advanced features such as filtering, ordering, pagination, and handling multiple foreign key relationships.
 Requirements:
 1. Django Project Setup:
-● Create a new Django project named bookstore_project and an app
-named inventory.
+● Create a new Django project named bookstore_project and an app named inventory.
 2. Endpoints:
 ● Create endpoints to:
 ● List all books
