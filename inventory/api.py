@@ -1,15 +1,14 @@
-from rest_framework import generics ,filters
+from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Book,Category,Author
-from .serializer import AuthorSerializer,CategorySerializer,BookSerializer
+from .models import Author, Category, Book
+from .serializers import AuthorSerializer, CategorySerializer, BookSerializer
 
 class BookListCreateView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    filter_backends = [DjangoFilterBackend]
-    filter_filed = ['author__name','categories__name','price','stock']
-    ordering_fields = ['title','price','stock']
-
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filterset_fields = ['authors__name', 'categories__name', 'price', 'stock']
+    ordering_fields = ['title', 'price', 'stock']
 
 class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()

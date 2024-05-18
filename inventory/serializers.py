@@ -12,8 +12,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id','name']
 
 class BookSerializer(serializers.ModelSerializer):
-    authors = AuthorSerializer(many=True)
-    category = CategorySerializer(many=True)
+    authors = serializers.PrimaryKeyRelatedField(many=True, queryset=Author.objects.all())
+    categories = serializers.PrimaryKeyRelatedField(many=True, queryset=Category.objects.all())
+
     class Meta:
-        model =Book
-        fields = ['id','title','authors','price','categories','stock']
+        model = Book
+        fields = ['id', 'title', 'authors', 'categories', 'price', 'stock']
